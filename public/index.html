@@ -7,18 +7,21 @@
     <title>Lon in</title>
 </head>
 <body class="">
-    <div class=" h-screen w-screen  flex">
-        <div class="space-y-30 w-md h-2/3 m-auto border-5 rounded-lg text-center justify-center p-10">
-        <h1 class=" text-7xl font-black">Log in</h1>
-        <div class="space-y-3">
-            <input class="border-2 rounded-md px-2 w-full h-12" type="text" placeholder="username" id="username">
-            <input class="border-2 rounded-md px-2 w-full h-12" type="password" placeholder="password" id="password">
-            <p>username/pass : amin:1234</p>
-        </div>
-        
-        <button onclick="submit()" class="bg-blue-500 h-15 rounded-md cursor-pointer w-full text-white text-2xl">submit</button>
-        </div>
-    </div>
+    
+            <div class=" h-screen w-screen  flex">
+            <div class="space-y-30 w-md h-2/3 m-auto border-5 rounded-lg text-center justify-center p-10">
+                <h1 class=" text-7xl font-black">Log in</h1>
+                <div class="space-y-3">
+                    <input class="border-2 rounded-md px-2 w-full h-12" type="text" placeholder="username" id="username">
+                    <input class="border-2 rounded-md px-2 w-full h-12" type="password" placeholder="password" id="password">
+                    <p>username/pass : amin:1234</p>
+                </div>
+                
+                <button type="button" onclick="submit()" class="bg-blue-500 h-15 rounded-md cursor-pointer w-full text-white text-2xl">submit</button>
+                </div>
+            </div>
+       
+   
 </body>
 <script>
     
@@ -37,7 +40,7 @@
         try{
             if(res.validation){
             localStorage.setItem('username',username)
-            window.location.pathname=res.redirect
+            window.location.href=res.redirect
             
         }
         else alert('login faild')

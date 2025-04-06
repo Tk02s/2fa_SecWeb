@@ -8,6 +8,8 @@ app.use(cors())
 
 
 
+app.use(express.static(path.join(__dirname, '../public')));
+
 
 
 
@@ -21,7 +23,7 @@ const {username,password}=req.body
 const user_find=user.find(u=>u.username===username)
 if(user_find){
     if(user_find.password===password) {
-        res.json({validation:true,redirect:"./2fa.html"})
+        res.json({validation:true,redirect:"../2fa.html"})
         ran_num=random_num().toString()
         //console.log(ran_num);
     }
