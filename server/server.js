@@ -34,7 +34,7 @@ if(user_find){
 })
 
 function random_num(){
-    let random_n= Math.floor(Math.random()*10000).toString()
+    let random_n= Math.floor(Math.random()*100).toString()
     return String(random_n).padStart(4, '0'); 
 }
 
