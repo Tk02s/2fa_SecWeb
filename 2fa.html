@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class=" h-screen flex ">
+        <div class="border-4 w-2/3 h-2/3 m-auto space-y-30 rounded-md p-20">
+            <h1 class="text-5xl font-bold">2FA verefiction</h1>
+
+            <div class="space-y-4 ">
+                <h2 class="text-3xl">A confirmation code has been sent to your email. (a******@gmail.com)</h2>
+                <p id="p" class="text-red-500"></p>
+                <input  class="w-1/3 border-2 px-2 py-2 text-2xl rounded-md" id="input_code" type="text" placeholder="code">
+            </div>
+            <div class="flex justify-end ">
+                <button onclick="send_code()" class="bg-blue-500 text-white text-xl cursor-pointer px-15 py-4 rounded-md  ">send</button>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let p=document.getElementById('p')
+    let real_code=0
+   async function send_code(){
+    let code =document.getElementById('input_code').value
+    await fetch('http://localhost:2000/sendcode',{
+        method:"POST",
+        headers:{'Content-Type': 'application/json'},
+        body:JSON.stringify({code})
+    })
+    .then(res=>res.json())
+    .then(res=>{
+      try {
+        if(res.message !=undefined)  p.innerHTML=res.message
+        else window.location.pathname=res.redirect
+       
+      } catch (err) {
+        console.log(err);
+        
+      }
+       
+    })
+    }
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</html>

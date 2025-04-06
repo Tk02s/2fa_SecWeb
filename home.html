@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        button{
+            transition: margin-top 0.5s;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.485);
+        }
+    </style>
+</head>
+<body class="p-10">
+    <center>
+        <h1 id="h1" class="text-5xl">Welecome <b id="b"></b> in your page</h1>
+        <button onclick="logout()" class="bg-red-500 p-5 text-white  aspect-square rounded-full mt-20 cursor-pointer  hover:mt-18 ">Log out</button>
+    </center>
+</body>
+<script>
+    const user=localStorage.getItem("username")
+    document.getElementById('b').innerHTML=user
+
+    
+    
+    function logout(){
+        
+    localStorage.removeItem('username')
+    window.location.pathname='./index.html'
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</html>
